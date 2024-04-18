@@ -1,0 +1,18 @@
+*{
+    margin: 1rem auto;
+}
+
+.vertical-line::after {
+    content: '';
+    display: inline;
+    border-left: 1px solid black;
+    height: 15px; 
+}
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .middle-t{
+    display: "flex",
+  }
