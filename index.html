@@ -65,14 +65,16 @@
               <h4 class="radio-button-h4">Completed by:</h4>
             </div>
             <div>
-              <label for="vessel">Vessel</label>
+              <label for="vessel" style="margin-right: 0.5rem">Vessel</label>
               <input
                 type="radio"
                 id="vessel"
                 name="radioButton1"
                 value="vessel"
               />
-              <label for="headOffice">Head Office</label>
+              <label for="headOffice" style="margin-right: 0.5rem"
+                >Head Office</label
+              >
               <input
                 type="radio"
                 id="headOffice"
@@ -83,12 +85,42 @@
           </div>
         </li>
         <li>
-          <div>
-            <h4 class="radio-button-h4">Date of Completion:</h4>
+          <div class="datepicker-container">
+            <div>
+              <h4 class="radio-button-h4">Date of Completion:</h4>
+            </div>
+            <div class="custom-date-picker">
+              <input type="date" id="nativeInput" class="hidden-input" />
+              <input
+              style="border: none"
+                type="date"
+                id="customInput"
+                readonly 
+                class="custom-input"
+                value=`{$dateString}`
+              >
+              <span  class="custom-input">📅</span>
+            </input>
+            </div>
           </div>
         </li>
         <li></li>
       </ul>
     </form>
+    <script>
+      const nativeInput = document.getElementById('nativeInput');
+      const customInput = document.getElementById('customInput');
+      nativeInput.addEventListener('input', function() {
+      customInput.value = nativeInput.value;
+      });
+      customInput.addEventListener('click', function() {
+         nativeInput.click(); 
+      });
+
+      const today = new Date();
+const day = String(today.getDate()).padStart(2, '0'); 
+const month = String(today.getMonth() + 1).padStart(2, '0');
+const year = today.getFullYear();
+    </script>
   </body>
 </html>
