@@ -3,8 +3,8 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  background-color: lightgrey;
 }
-
 
 body {
   display: flex;
@@ -18,9 +18,18 @@ body {
   width: 50%;
 }
 
+li p {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: rgb(33, 33, 167);
+}
+
 ol,
 ul {
+  text-align: justify;
   padding-left: 20px;
+  color: rgb(33, 33, 167);
 }
 
 .vertical-line::after {
@@ -121,7 +130,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-left: 5px;
   vertical-align: middle;
 } */
-
 
 @media (min-width: 1700px) {
   body {

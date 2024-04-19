@@ -31,34 +31,20 @@
       </table>
       <h1>Seafarer Appraisal Report (Confidential)</h1>
       <ol style="margin-bottom: 3rem">
-        <h4>
-          <li>
-            This report should be completed in full by the Master ( for the deck
-            and galley dpt.), the Chief Engineer (for the Engine dpt. ) or by
-            the Head Office (for Master and C/E).
-          </li>
-        </h4>
-        <h4>
-          <li>
-            The crewmember should be rated for all the below mentioned sections
-            (A & B).
-          </li>
-        </h4>
-        <h4>
-          <li>
-            Entries which do not relate to a section should be indicated as not
-            applicable.
-          </li>
-        </h4>
-        <h4>
-          <li>
-            The report shall be submitted to the crew department as soon as
-            possible after the crewmember has signed-off.
-          </li>
-        </h4>
+        <li>
+          <p>This report should be completed in full by the Master (for the deck and galley dpt.), the Chief Engineer (for the Engine dpt. ) or by the Head Office (for Master and C/E).</p>
+        </li>
+        <li>
+          <p>The crewmember should be rated for all the below mentioned sections (A & B).</p>
+        </li>
+        <li>
+          <p>Entries which do not relate to a section should be indicated as not applicable.</p>
+        </li>
+        <li>
+          <p>The report shall be submitted to the crew department as soon as possible after the crewmember has signed-off.</p>
+        </li>
       </ol>
-
-      <ul style="width: 100%">
+      <ul style="color: black">
         <li>
           <div class="radio-button">
             <div>
@@ -97,7 +83,7 @@
                 id="customInput"
                 readonly 
                 class="custom-input"
-                value=`{$dateString}`
+                value="dateString"
               >
               <span  class="custom-input">📅</span>
             </input>
@@ -107,20 +93,6 @@
         <li></li>
       </ul>
     </form>
-    <script>
-      const nativeInput = document.getElementById('nativeInput');
-      const customInput = document.getElementById('customInput');
-      nativeInput.addEventListener('input', function() {
-      customInput.value = nativeInput.value;
-      });
-      customInput.addEventListener('click', function() {
-         nativeInput.click(); 
-      });
-
-      const today = new Date();
-const day = String(today.getDate()).padStart(2, '0'); 
-const month = String(today.getMonth() + 1).padStart(2, '0');
-const year = today.getFullYear();
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
