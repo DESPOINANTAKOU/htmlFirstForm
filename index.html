@@ -146,7 +146,6 @@
       font-size: 16px;
       border: none;
       border-bottom: 1px solid black;
-      border-radius: 5px;
       background-color: lightgrey;
       appearance: none;
       -webkit-appearance: none;
@@ -242,7 +241,8 @@
           </div>
           <div class="custom-date-picker">
             <input type="date" id="nativeInput" class="hidden-input" />
-            <input style="border: none" type="date" id="customInput" readonly class="custom-input" value="dateString">
+            <input style="border: none; border-bottom: 1px solid black" type="date" id="customInput" readonly
+              class="custom-input" value="dateString">
             <span class="custom-input">📅</span>
             </input>
           </div>
@@ -275,6 +275,40 @@
           <h4 class="radio-button-h4"><label for="rank">Rank:</label></h4>
           <select name="rank" id="rank">
             <option value="3/E">3/E</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+      </li>
+      <li>
+        <div class="select-button-divs">
+          <h4 class="radio-button-h4"><label for="serviceOnboard">Service Onboard:</label></h4>
+          <div id="datePickerFromTo">
+            <label for="from">From:</label>
+            <div class="custom-date-picker">
+              <input type="date" id="nativeInput" class="hidden-input" />
+              <input style="border: none; border-bottom: 1px solid black" type="date" id="customInput" readonly
+                class="custom-input" value="dateString">
+              <span class="custom-input">📅</span>
+              </input>
+            </div>
+            <label for="to">To:</label>
+            <div class="custom-date-picker">
+              <input type="date" id="nativeInput" class="hidden-input" />
+              <input style="border: none; border-bottom: 1px solid black" type="date" id="customInput" readonly
+                class="custom-input" value="dateString">
+              <span class="custom-input">📅</span>
+              </input>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="select-button-divs">
+          <h4 class="radio-button-h4"><label for="ManningAgency">Manning Agency:</label></h4>
+          <select name="ManningAgency" id="ManningAgency">
+            <option value="BrightMaritime">Bright Maritime</option>
             <option value="saab">Saab</option>
             <option value="mercedes">Mercedes</option>
             <option value="audi">Audi</option>
