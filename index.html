@@ -1,98 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Table Example</title>
-  </head>
-  <body>
-    <form action="" method="">
-      <table>
-        <tr>
-          <td style="font-weight: bold">IONIA MANAGEMENT S.A</td>
-          <td>Prepared by: DPA</td>
-          <td>Effective Date: 31/01/2024</td>
-        </tr>
-        <tr class="middle-tr">
-          <td>Company Operating Manual</td>
-          <td>Approved by: MD</td>
-          <td class="flex-class">
-            Revision: 0
-            <div style="padding: 5px; height: 100%" class="vertical-line"></div>
-            Issue: 3
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Section 3: Recruitment and Management of Vessel Personnel</td>
-          <td>Form: O022</td>
-        </tr>
-      </table>
-      <h1>Seafarer Appraisal Report (Confidential)</h1>
-      <ol style="margin-bottom: 3rem">
-        <li>
-          <p>This report should be completed in full by the Master (for the deck and galley dpt.), the Chief Engineer (for the Engine dpt. ) or by the Head Office (for Master and C/E).</p>
-        </li>
-        <li>
-          <p>The crewmember should be rated for all the below mentioned sections (A & B).</p>
-        </li>
-        <li>
-          <p>Entries which do not relate to a section should be indicated as not applicable.</p>
-        </li>
-        <li>
-          <p>The report shall be submitted to the crew department as soon as possible after the crewmember has signed-off.</p>
-        </li>
-      </ol>
-      <ul style="color: black">
-        <li>
-          <div class="radio-button">
-            <div>
-              <h4 class="radio-button-h4">Completed by:</h4>
-            </div>
-            <div>
-              <label for="vessel" style="margin-right: 0.5rem">Vessel</label>
-              <input
-                type="radio"
-                id="vessel"
-                name="radioButton1"
-                value="vessel"
-              />
-              <label for="headOffice" style="margin-right: 0.5rem"
-                >Head Office</label
-              >
-              <input
-                type="radio"
-                id="headOffice"
-                name="radioButton1"
-                value="headOffice"
-              />
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Table Example</title>
+  <style>* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    background-color: lightgrey;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    margin-top: 1rem;
+    font-family: "Fira Sans", Roboto, Arial;
+    width: 50%;
+  }
+  
+  li p {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: rgb(33, 33, 167);
+  }
+  
+  ol,
+  ul {
+    text-align: justify;
+    padding-left: 20px;
+    color: rgb(33, 33, 167);
+  }
+  
+  .vertical-line::after {
+    content: "";
+    display: inline;
+    border-left: 1px solid black;
+    height: 20px;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  td {
+    height: 100%;
+    text-align: center;
+    padding: 0.2rem;
+  }
+  
+  .flex-class {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    padding-top: 6.2px;
+  }
+  
+  h1 {
+    color: rgb(33, 33, 167);
+    margin-top: 2rem;
+  }
+  
+  h4 {
+    color: rgb(33, 33, 167);
+    margin-top: 1rem;
+    text-align: justify;
+  }
+  
+  .radio-button,
+  .datepicker-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .radio-button-h4 {
+    margin-top: 0;
+    color: black;
+  }
+  
+  ul > li {
+    margin-bottom: 1rem;
+  }
+  
+  .hidden-input {
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+    background-color: red;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  
+  .custom-input {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    vertical-align: middle;
+  }
+  
+  .custom-date-picker {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+  
+  /* .custom-date-picker::after {
+    content: "\1F4C5";
+    font-size: 1em;
+    margin-left: 5px;
+    vertical-align: middle;
+  } */
+  
+  @media (min-width: 1700px) {
+    body {
+      width: 30%;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <form action="" method="">
+    <table>
+      <tr>
+        <td style="font-weight: bold">IONIA MANAGEMENT S.A</td>
+        <td>Prepared by: DPA</td>
+        <td>Effective Date: 31/01/2024</td>
+      </tr>
+      <tr class="middle-tr">
+        <td>Company Operating Manual</td>
+        <td>Approved by: MD</td>
+        <td class="flex-class">
+          Revision: 0
+          <div style="padding: 5px; height: 100%" class="vertical-line"></div>
+          Issue: 3
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Section 3: Recruitment and Management of Vessel Personnel</td>
+        <td>Form: O022</td>
+      </tr>
+    </table>
+    <h1>Seafarer Appraisal Report (Confidential)</h1>
+    <ol style="margin-bottom: 3rem">
+      <li>
+        <p>This report should be completed in full by the Master (for the deck and galley dpt.), the Chief Engineer (for
+          the Engine dpt. ) or by the Head Office (for Master and C/E).</p>
+      </li>
+      <li>
+        <p>The crewmember should be rated for all the below mentioned sections (A & B).</p>
+      </li>
+      <li>
+        <p>Entries which do not relate to a section should be indicated as not applicable.</p>
+      </li>
+      <li>
+        <p>The report shall be submitted to the crew department as soon as possible after the crewmember has signed-off.
+        </p>
+      </li>
+      <li>
+        <p>The Chief Engineer and the Master initiate and finalize the form.</p>
+      </li>
+      <li>
+        <p>The Crew Manager and the Crew Assistant view the completed form.</p>
+      </li>
+    </ol>
+    <ul style="color: black">
+      <li>
+        <div class="radio-button">
+          <div>
+            <h4 class="radio-button-h4">Completed by:</h4>
           </div>
-        </li>
-        <li>
-          <div class="datepicker-container">
-            <div>
-              <h4 class="radio-button-h4">Date of Completion:</h4>
-            </div>
-            <div class="custom-date-picker">
-              <input type="date" id="nativeInput" class="hidden-input" />
-              <input
-              style="border: none"
-                type="date"
-                id="customInput"
-                readonly 
-                class="custom-input"
-                value="dateString"
-              >
-              <span  class="custom-input">📅</span>
+          <div>
+            <label for="vessel-radio-button" style="margin-right: 0.5rem">Vessel</label>
+            <input type="radio" id="vessel-radio-button" name="radioButton1" value="vessel" />
+            <label for="headOffice" style="margin-right: 0.5rem">Head Office</label>
+            <input type="radio" id="headOffice" name="radioButton1" value="headOffice" />
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="datepicker-container">
+          <div>
+            <h4 class="radio-button-h4">Date of Completion:</h4>
+          </div>
+          <div class="custom-date-picker">
+            <input type="date" id="nativeInput" class="hidden-input" />
+            <input style="border: none" type="date" id="customInput" readonly class="custom-input" value="dateString">
+            <span class="custom-input">📅</span>
             </input>
-            </div>
           </div>
-        </li>
-        <li></li>
-      </ul>
-    </form>
-    <script src="index.js"></script>
-  </body>
+        </div>
+      </li>
+      <li>
+        <div class="select-button-divs">
+          <h4 class="radio-button-h4"><label for="vessel">Vessel:</label></h4>
+          <select name="vessel" id="vessel">
+            <option value="gea">Gea</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+      </li>
+    </ul>
+  </form>
+  <script>
+
+    const nativeInput = document.getElementById('nativeInput');
+    const customInput = document.getElementById('customInput');
+    const customSpan = document.querySelector('.custom-input');
+
+    //setting the Date
+    const today = new Date();
+    console.log(today);
+    const day = String(today.getDate()).padStart(2, "0");
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const year = today.getFullYear();
+    const dateString = `${year}-${month}-${day}`;
+    // console.log(dateString);
+    // console.log(document.getElementById("customInput").value);
+    customInput.value = dateString;
+
+
+    function handleClick() {
+      nativeInput.addEventListener("input", function () {
+        customInput.value = nativeInput.value;
+      });
+      customInput.addEventListener("click", function () {
+        nativeInput.click();
+      });
+      nativeInput.focus();
+    }
+
+    customInput.addEventListener('click', handleClick);
+    customSpan.addEventListener('click', handleClick);
+  </script>
+</body>
+
 </html>
